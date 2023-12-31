@@ -1,0 +1,12 @@
+.header {
+  margin-top: 45px;
+}
+
+.header__line {
+  max-width: 880px;
+  height: 1px;
+  margin-top: 41px;
+  margin-bottom: 0;
+  color: #545454;
+  opacity: 0.7;
+}
