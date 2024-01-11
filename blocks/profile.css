@@ -42,6 +42,7 @@
   height: 50px;
   margin-left: auto;
   border: 2px #fff solid;
+  border-radius: 2px;
 }
 
 .profile__add-button:hover {
