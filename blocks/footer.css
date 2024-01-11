@@ -3,12 +3,17 @@
   height: 18px;
   margin-top: 67px;
   margin-left: 200px;
-}
-
-.footer__description {
+  margin-bottom: 60px;
   font-weight: 400;
   font-size: 18px;
   line-height: 1.2;
   color: #545454;
-  margin: 0;
+}
+
+@media screen and (max-width: 775px) {
+  .footer {
+    max-width: 282px;
+    height: 14px;
+    margin: 40px 19px 36px 19px;
+  }
 }
