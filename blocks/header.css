@@ -2,11 +2,21 @@
   margin-top: 45px;
 }
 
+.header__logo {
+  max-width: 173px;
+}
+
 .header__line {
   max-width: 880px;
   height: 1px;
-  margin-top: 41px;
+  margin-top: 32px;
   margin-bottom: 0;
   color: #545454;
   opacity: 0.7;
+}
+
+@media screen and (max-width: 775px) {
+  .header__logo {
+    max-width: 126px;
+  }
 }
