@@ -101,7 +101,7 @@
     margin-bottom: 36px;
   }
   .profile__add-button {
-    width: 100%;
+    width: 581px;
     margin: 0;
   }
   .profile__edit-button {
@@ -111,5 +111,11 @@
   }
   .profile__image {
     margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 635px) {
+  .profile__add-button {
+    max-width: 282px;
   }
 }

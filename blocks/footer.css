@@ -1,5 +1,6 @@
 .footer {
   max-width: 318px;
+  margin-top: 67px;
   margin-left: 200px;
   margin-bottom: 60px;
   font-weight: 400;
@@ -12,6 +13,7 @@
   .footer {
     max-width: 282px;
     font-size: 14px;
-    margin: 40px 19px 36px 19px;
+    line-height: 1.21;
+    margin: 30px 19px 36px 19px;
   }
 }
