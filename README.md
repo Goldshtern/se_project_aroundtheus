@@ -35,15 +35,21 @@ To create this web-page the follwing technologies and technniques were used:
    9 [Link to the project on GitHub](https://github.com/Goldshtern/se_project_aroundtheus.git)
 
 **Pictures (screenshots)**
+
 Grid.
 ![grid](./images/demo/BEM%20file%20stucture.png)
+
 Flex and grid.
 ![flex and grid](./images/demo/flex%20and%20grid.png)
+
 BEM structure.
 ![BEM structure](./images/demo/BEM%20file%20stucture.png)
+
 1280px
 ![1280px](./images/demo/1280px.png)
+
 775px
 ![775px](./images/demo/775px.png)
+
 320px
 ![320px](./images/demo/320px.png)
