@@ -6,6 +6,7 @@
 - A description of the project and its functionality.
 - A description of technologies and technniques used.
 - Pictures (screenshots).
+- Video Sprint 3
 
 **Project: "Around The US"**
 
@@ -53,3 +54,7 @@ BEM structure.
 
 320px
 ![320px](./images/demo/320px.png)
+
+**Video Sprint 3**
+
+![Video Sprint3](https://drive.google.com/file/d/1bZXODnI3CCg9W3Y9evjqe8X6lOAgT9yq/view?usp=sharing)
