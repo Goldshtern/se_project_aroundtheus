@@ -19,6 +19,7 @@
   grid-area: title;
   white-space: nowrap;
   text-overflow: ellipsis;
+  overflow: hidden;
   max-width: 375px;
   margin: 0;
 }
@@ -72,10 +73,6 @@
 }
 
 @media screen and (max-width: 775px) {
-  /*.profile {
-    flex-direction: column;
-  }*/
-
   .profile__info {
     display: flex;
     flex-wrap: wrap;
@@ -89,10 +86,7 @@
     text-align: center;
     margin-top: 26.25px;
     margin-bottom: 14px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
     max-width: 282px;
-    overflow: hidden;
   }
 
   .profile__description {
