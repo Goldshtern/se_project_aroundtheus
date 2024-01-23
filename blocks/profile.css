@@ -72,9 +72,9 @@
 }
 
 @media screen and (max-width: 775px) {
-  .profile {
+  /*.profile {
     flex-direction: column;
-  }
+  }*/
 
   .profile__info {
     display: flex;
@@ -116,6 +116,10 @@
 }
 
 @media screen and (max-width: 635px) {
+  .profile {
+    flex-direction: column;
+  }
+
   .profile__add-button {
     max-width: 282px;
   }

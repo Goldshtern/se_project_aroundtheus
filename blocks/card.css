@@ -30,6 +30,11 @@
   border: none;
 }
 
+.card__like-button:hover {
+  opacity: 60%;
+  cursor: pointer;
+}
+
 .card__title {
   max-width: 220px;
   font-size: 24px;
