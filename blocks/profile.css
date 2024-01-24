@@ -60,7 +60,7 @@
   grid-area: description;
   text-overflow: ellipsis;
   white-space: nowrap;
-  max-width: 320px;
+  width: 320px;
   overflow: hidden;
   margin: 0;
 }

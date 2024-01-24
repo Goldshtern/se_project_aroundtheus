@@ -15,9 +15,9 @@
 
 @media screen and (max-width: 635px) {
   .gallery {
-    padding: 36px 0 0;
+    padding-top: 36px;
   }
   .gallery__cards {
-    padding: 15px 0 18px;
+    padding-bottom: 18px;
   }
 }
