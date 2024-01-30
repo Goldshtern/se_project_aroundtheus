@@ -32,8 +32,9 @@ To create this web-page the follwing technologies and technniques were used:
 5. DevTools to be ensure, that the web-page should scale as smoothly as possible;
 6. All fonts used in this project are from the Inter family. The necessary font files and @font-face declarations were added in the project’s vendor directory;
 7. A line-height was calculated by dividing line-height by font-size;
-8. In some parts, for example cards, text was hiding by set overflow CSS properties;  
-   9 [Link to the project on GitHub](https://github.com/Goldshtern/se_project_aroundtheus.git)
+8. In some parts, for example cards, text was hiding by set overflow CSS properties;
+
+9 [Link to the project on GitHub](https://github.com/Goldshtern/se_project_aroundtheus.git)
 
 **Pictures (screenshots)**
 
