@@ -18,8 +18,6 @@
   font-weight: 500;
   grid-area: title;
   white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
   max-width: 375px;
   margin: 0;
 }
