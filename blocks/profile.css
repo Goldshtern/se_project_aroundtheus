@@ -18,7 +18,9 @@
   line-height: 1.1;
   font-weight: 500;
   grid-area: title;
+  text-overflow: ellipsis;
   white-space: nowrap;
+  overflow: hidden;
   max-width: 375px;
   margin: 0;
 }
@@ -56,6 +58,7 @@
   font-size: 18px;
   line-height: 1.2;
   font-weight: 400;
+  color: #fff;
   grid-area: description;
   text-overflow: ellipsis;
   white-space: nowrap;
