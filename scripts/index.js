@@ -25,6 +25,9 @@ const initialCards = [
   },
 ];
 
+/*----------------------------------------------------------------------*/
+/*--------------------------Elements------------------------------------*/
+/*----------------------------------------------------------------------*/
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const modalCloseButton = document.querySelector("#modal-close-button");
@@ -36,10 +39,26 @@ const profileDescriptionInput = document.querySelector(
 );
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 
+/*----------------------------------------------------------------------*/
+/*-----------------------------Functuons--------------------------------*/
+/*----------------------------------------------------------------------*/
 function closePopop() {
   profileEditModal.classList.remove("modal__opened");
 }
 
+/*----------------------------------------------------------------------*/
+/*-----------------------------Event handlers---------------------------*/
+/*----------------------------------------------------------------------*/
+function handleProfileEditSubmit(evt) {
+  evt.preventDefault();
+  profileTitle.textContent = profileTitleInput.value;
+  profileDescription.textContent = profileDescriptionInput.value;
+  closePopop();
+}
+
+/*-----------------------------------------------------------------------*/
+/*-----------------------------Event listners----------------------------*/
+/*-----------------------------------------------------------------------*/
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
@@ -51,9 +70,4 @@ modalCloseButton.addEventListener("click", () => {
   closePopop();
 });
 
-profileEditForm.addEventListener("submit", (evt) => {
-  evt.preventDefault();
-  profileTitle.textContent = profileTitleInput.value;
-  profileDescription.textContent = profileDescriptionInput.value;
-  closePopop();
-});
+profileEditForm.addEventListener("submit", handleProfileEditSubmit);
