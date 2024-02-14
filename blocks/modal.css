@@ -12,7 +12,7 @@
   padding: 0 19px;
 }
 
-.modal__opened {
+.modal_opened {
   display: flex;
 }
 
@@ -92,7 +92,7 @@
     width: 26px;
     height: 26px;
     left: 255px;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
   }
   .modal__field {
     margin-bottom: 30px;
@@ -104,6 +104,6 @@
 
 @media screen and (max-width: 333px) {
   .modal__close-button {
-    left: 240px;
+    left: 241px;
   }
 }
