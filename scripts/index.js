@@ -1,6 +1,6 @@
 const initialCards = [
   {
-    name: "Yosemite Valley",
+    name: "Ycardosemite Valley",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
   },
   {
@@ -44,6 +44,18 @@ const cardModalCloseBtn = document.querySelector("#card-modal-close-button");
 const addCardFormElement = document.querySelector("#add-card-form");
 const cardTitleInput = document.querySelector("#card-title-input");
 const cardUrlInput = document.querySelector("#image-URL-input");
+const previewPopup = document.querySelector("#popup");
+const imagePreviewPopup = previewPopup.querySelector(".popup__image");
+const titlePreviewPopup = previewPopup.querySelector(".popup__title");
+const closePopupBtn = document.querySelector("#close-popup-button");
+
+function openPopup() {
+  previewPopup.classList.add("popup_opened");
+}
+
+function closePopupImage() {
+  previewPopup.classList.remove("popup_opened");
+}
 
 function closePopup() {
   profileEditModal.classList.remove("modal_opened");
@@ -57,11 +69,19 @@ function getCardElement(cardData) {
   const likeBtn = cardElement.querySelector(".card__like-button");
   const deleteBtn = cardElement.querySelector(".card__delete-button");
 
-  deleteBtn.addEventListener("click", () => {
-    cardElement.remove();
+  cardImageEl.addEventListener("click", () => {
+    imagePreviewPopup.src = cardData.link;
+    titlePreviewPopup.textContent = cardData.name;
+    openPopup();
+  });
+  closePopupBtn.addEventListener("click", () => {
+    closePopupImage();
   });
   likeBtn.addEventListener("click", () => {
     likeBtn.classList.toggle("card__like-button_active");
+  });
+  deleteBtn.addEventListener("click", () => {
+    cardElement.remove();
   });
   cardImageEl.src = cardData.link;
   cardImageEl.alt = cardData.name + " " + "Image";
