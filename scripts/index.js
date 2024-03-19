@@ -27,7 +27,7 @@ const initialCards = [
 
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
-const modalCloseButton = document.querySelector("#modal-close-button");
+const profileCloseBtn = document.querySelector("#profile-modal-close-button");
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
 const profileTitleInput = document.querySelector("#profile-title-input");
@@ -44,22 +44,19 @@ const cardModalCloseBtn = document.querySelector("#card-modal-close-button");
 const addCardFormElement = document.querySelector("#add-card-form");
 const cardTitleInput = document.querySelector("#card-title-input");
 const cardUrlInput = document.querySelector("#image-URL-input");
-const previewPopup = document.querySelector("#popup");
-const imagePreviewPopup = previewPopup.querySelector(".popup__image");
-const titlePreviewPopup = previewPopup.querySelector(".popup__title");
-const closePopupBtn = document.querySelector("#close-popup-button");
+const previewPopup = document.querySelector("#modal-image");
+const imagePreviewPopup = previewPopup.querySelector(".modal__image");
+const titlePreviewPopup = previewPopup.querySelector(".modal__image-title");
+const ImageModalCloseBtn = document.querySelector("#image-modal-close-button");
 
 function openPopup() {
-  previewPopup.classList.add("popup_opened");
-}
-
-function closePopupImage() {
-  previewPopup.classList.remove("popup_opened");
+  previewPopup.classList.add("modal_opened");
 }
 
 function closePopup() {
   profileEditModal.classList.remove("modal_opened");
   cardEditModal.classList.remove("modal_opened");
+  previewPopup.classList.remove("modal_opened");
 }
 
 function getCardElement(cardData) {
@@ -71,11 +68,9 @@ function getCardElement(cardData) {
 
   cardImageEl.addEventListener("click", () => {
     imagePreviewPopup.src = cardData.link;
+    imagePreviewPopup.alt = cardData.name + " " + "Image";
     titlePreviewPopup.textContent = cardData.name;
     openPopup();
-  });
-  closePopupBtn.addEventListener("click", () => {
-    closePopupImage();
   });
   likeBtn.addEventListener("click", () => {
     likeBtn.classList.toggle("card__like-button_active");
@@ -106,6 +101,7 @@ function handleAddCardFormSubmit(evt) {
   });
   cardListEl.prepend(cardElement);
   closePopup();
+  evt.target.reset(cardElement);
 }
 
 profileEditButton.addEventListener("click", () => {
@@ -117,8 +113,9 @@ addNewCardButton.addEventListener("click", () => {
   cardEditModal.classList.add("modal_opened");
 });
 
-modalCloseButton.addEventListener("click", closePopup);
+profileCloseBtn.addEventListener("click", closePopup);
 cardModalCloseBtn.addEventListener("click", closePopup);
+ImageModalCloseBtn.addEventListener("click", closePopup);
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
