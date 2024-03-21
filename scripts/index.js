@@ -105,10 +105,10 @@ function handleAddCardFormSubmit(evt) {
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
-  profileEditModal.classList.add("modal_opened");
+  openPopup(profileEditModal); //.classList.add("modal_opened");
 });
 addNewCardButton.addEventListener("click", () => {
-  cardEditModal.classList.add("modal_opened");
+  openPopup(cardEditModal); //.classList.add("modal_opened");
 });
 
 profileCloseBtn.addEventListener("click", () => {
