@@ -49,8 +49,8 @@ const imagePreviewPopup = previewPopup.querySelector(".modal__image");
 const titlePreviewPopup = previewPopup.querySelector(".modal__image-title");
 const imageModalCloseBtn = document.querySelector("#image-modal-close-button");
 
-function openPopup() {
-  previewPopup.classList.add("modal_opened");
+function openPopup(popup) {
+  popup.classList.add("modal_opened");
 }
 
 function closePopup(popup) {
@@ -68,7 +68,7 @@ function getCardElement(cardData) {
     imagePreviewPopup.src = cardData.link;
     imagePreviewPopup.alt = cardData.name + " " + "Image";
     titlePreviewPopup.textContent = cardData.name;
-    openPopup();
+    openPopup(previewPopup);
   });
   likeBtn.addEventListener("click", () => {
     likeBtn.classList.toggle("card__like-button_active");
