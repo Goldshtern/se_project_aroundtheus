@@ -99,7 +99,7 @@ function handleAddCardFormSubmit(evt) {
   });
   cardListEl.prepend(cardElement);
   closePopup(cardEditModal);
-  evt.target.reset(cardElement);
+  evt.target.reset();
 }
 
 profileEditButton.addEventListener("click", () => {
