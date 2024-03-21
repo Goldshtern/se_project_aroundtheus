@@ -131,12 +131,13 @@
     margin-bottom: 30px;
   }
   .modal__button {
+    font-size: 14px;
     margin-top: 15px;
   }
 }
 
 @media screen and (max-width: 333px) {
   .modal__close-button {
-    left: 229px;
+    left: 241px;
   }
 }
