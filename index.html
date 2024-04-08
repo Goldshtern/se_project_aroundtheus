@@ -52,6 +52,7 @@
     <footer class="footer">
       <p class="footer__content">&copy; 2024 Around The U.S.</p>
     </footer>
+
     <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
         <button
@@ -67,15 +68,32 @@
             type="text"
             name="title"
             placeholder="Name"
+            minlength="2"
+            maxlength="40"
+            required
           />
+          <span class="popup__error" id="profile-title-input-error"></span>
           <input
             class="modal__field"
             id="profile-description-input"
             type="text"
             name="description"
             placeholder="Description"
+            minlength="2"
+            maxlength="200"
+            required
           />
-          <button class="modal__button">Save</button>
+          <span
+            class="popup__error-lower"
+            id="profile-description-input-error"
+          ></span>
+          <button
+            class="modal__button modal__button_submit popup__button_disabled"
+            type="submit"
+            disabled
+          >
+            <span class="modal__saved">Save</span>
+          </button>
         </form>
       </div>
     </div>
@@ -94,15 +112,29 @@
             type="text"
             name="card-title"
             placeholder="Title"
+            minlength="2"
+            maxlength="40"
+            required
           />
+          <span class="popup__error" id="card-title-input-error"></span>
           <input
             class="modal__field"
             id="image-URL-input"
-            type="text"
+            type="url"
             name="URL"
             placeholder="Image link"
+            minlength="2"
+            maxlength="200"
+            required
           />
-          <button class="modal__button">Create</button>
+          <span class="popup__error-lower" id="image-URL-input-error"></span>
+          <button
+            class="modal__button modal__button_submit popup__button_disabled"
+            type="submit"
+            disabled
+          >
+            <span class="modal__saved">Create</span>
+          </button>
         </form>
       </div>
     </div>
@@ -129,5 +161,6 @@
     </template>
 
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validation.js"></script>
   </body>
 </html>

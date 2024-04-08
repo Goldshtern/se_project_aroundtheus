@@ -84,6 +84,18 @@
   opacity: 80%;
 }
 
+.modal__saved {
+  color: rgba(255, 255, 255, 1);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21.78px;
+  text-align: center;
+  margin-top: 13.66px;
+  margin-left: 125px;
+  margin-right: 125px;
+  margin-bottom: 18.49;
+}
+
 .modal__image-content {
   position: relative;
 }
