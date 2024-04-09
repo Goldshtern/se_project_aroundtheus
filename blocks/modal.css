@@ -91,8 +91,8 @@
   line-height: 21.78px;
   text-align: center;
   margin-top: 13.66px;
-  margin-left: 125px;
-  margin-right: 125px;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 18.49;
 }
 
@@ -111,6 +111,41 @@
   font-size: 12px;
   line-height: 1.2px;
   margin: 10px 0 0;
+}
+
+.modal__error {
+  font-size: 12px;
+  line-height: 15px;
+  color: #ff0000;
+  position: absolute;
+  top: 135px;
+  transition: opasity 0.3s;
+}
+
+.modal__error-lower {
+  font-size: 12px;
+  line-height: 15px;
+  color: #ff0000;
+  position: absolute;
+  top: 205px;
+  transition: opasity 0.3s;
+}
+
+.modal__input_type_error {
+  border-bottom: 1px solid red;
+}
+
+.modal__button_disabled {
+  background-color: grey;
+  border: 1px solid gray;
+}
+
+.modal__button_disabled:hover {
+  cursor: auto;
+}
+
+.modal__button_disabled .modal__saved {
+  color: white;
 }
 
 @media screen and (max-width: 410px) {

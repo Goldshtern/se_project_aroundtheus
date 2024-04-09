@@ -1,5 +1,3 @@
-// enabling validation by calling enableValidation()
-// pass all the settings on call
 function showInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
   const errorMessageElement = formEl.querySelector(`#${inputEl.id}-error`);
   inputEl.classList.add(inputErrorClass);
@@ -40,8 +38,7 @@ function toggleButtonState(inputEls, submitButton, { inactiveButtonClass }) {
 function setEventLiteners(formEl, options) {
   const { inputSelector } = options;
   const inputEls = [...formEl.querySelectorAll(inputSelector)];
-  const submitButton = formEl.querySelector(".modal__button");
-
+  const submitButton = formEl.querySelector(options.submitButtonSelector);
   inputEls.forEach((inputEl) => {
     inputEl.addEventListener("input", (evt) => {
       checkInputValidity(formEl, inputEl, options);
@@ -64,10 +61,10 @@ function enableValidation(options) {
 const config = {
   formSelector: ".modal__form",
   inputSelector: ".modal__field",
-  submitButtonSelector: ".modal__save",
-  inactiveButtonClass: "popup__button_disabled",
-  inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__error_visible",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
 };
 
 enableValidation(config);
