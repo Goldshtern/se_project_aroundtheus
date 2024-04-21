@@ -1,6 +1,8 @@
+import Card from "./Card.js";
+
 const initialCards = [
   {
-    name: "Ycardosemite Valley",
+    name: "Yosemite Valley",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
   },
   {
@@ -24,6 +26,14 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
   },
 ];
+
+const cardData = {
+  name: "Yosemite Valley",
+  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+};
+
+const card = new Card(cardData, "#card-template");
+card.getView();
 
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
@@ -87,17 +97,22 @@ function getCardElement(cardData) {
     titlePreviewPopup.textContent = cardData.name;
     openPopup(previewPopup);
   });
-  likeBtn.addEventListener("click", () => {
-    likeBtn.classList.toggle("card__like-button_active");
-  });
-  deleteBtn.addEventListener("click", () => {
-    cardElement.remove();
-  });
+  //likeBtn.addEventListener("click", handleLikeIcon);
+  //deleteBtn.addEventListener("click", handleDeleteCard);
+  cardImageEl.src = card;
   cardImageEl.src = cardData.link;
   cardImageEl.alt = cardData.name + " " + "Image";
   cardTitleEl.textContent = cardData.name;
   return cardElement;
 }
+
+//function handleLikeIcon(evt) {
+//evt.target.classList.toggle("card__like-button_active");
+//}
+
+//function handleDeleteCard(evt) {
+//evt.target.closest(".card").remove();
+//}
 
 function handleProfileEditSubmit(evt) {
   evt.preventDefault();
