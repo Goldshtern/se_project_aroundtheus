@@ -38,7 +38,7 @@ export default class Card {
       .cloneNode(true);
     //get the card view
     //set event listeners,
-    //this._setEventListeners();
-    //return the card
+    this._setEventListeners();
+    return this._cardElement;
   }
 }
