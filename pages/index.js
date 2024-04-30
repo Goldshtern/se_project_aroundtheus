@@ -34,7 +34,7 @@ const cardData = {
 };
 
 function getCardElement(cardData) {
-  const card = new Card(cardData, ".card-template", handleImageClick);
+  const card = new Card(cardData, "#card-template", handleImageClick);
   const cardElement = card.getView();
   return cardElement;
 }
