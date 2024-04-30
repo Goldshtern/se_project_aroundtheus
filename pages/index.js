@@ -33,8 +33,14 @@ const cardData = {
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
 };
 
-const card = new Card(cardData, "#card-template");
-card.getView();
+function getCardElement(cardData) {
+  const card = new Card(cardData, ".card-template", handleImageClick);
+  const cardElement = card.getView();
+  return cardElement;
+}
+
+//const card = new Card(cardData, "#card-template", handleImageClick);
+//card.getView();
 
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
@@ -85,27 +91,21 @@ function closePopupByEscape(evt) {
   }
 }
 
-function getCardElement(cardData) {
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardImageEl = cardElement.querySelector(".card__image");
-  const cardTitleEl = cardElement.querySelector(".card__title");
-  const likeBtn = cardElement.querySelector(".card__like-button");
-  const deleteBtn = cardElement.querySelector(".card__delete-button");
+//function getCardElement(cardData) {
+//const cardElement = cardTemplate.cloneNode(true);
+//const cardImageEl = cardElement.querySelector(".card__image");
+//const cardTitleEl = cardElement.querySelector(".card__title");
+//const likeBtn = cardElement.querySelector(".card__like-button");
+//const deleteBtn = cardElement.querySelector(".card__delete-button");
 
-  cardImageEl.addEventListener("click", () => {
-    imagePreviewPopup.src = cardData.link;
-    imagePreviewPopup.alt = cardData.name + " " + "Image";
-    titlePreviewPopup.textContent = cardData.name;
-    openPopup(previewPopup);
-  });
-  //likeBtn.addEventListener("click", handleLikeIcon);
-  //deleteBtn.addEventListener("click", handleDeleteCard);
-  cardImageEl.src = card;
-  cardImageEl.src = cardData.link;
-  cardImageEl.alt = cardData.name + " " + "Image";
-  cardTitleEl.textContent = cardData.name;
-  return cardElement;
-}
+//cardImageEl.addEventListener("click", handleImageClick);
+//likeBtn.addEventListener("click", handleLikeIcon);
+//deleteBtn.addEventListener("click", handleDeleteCard);
+//cardImageEl.src = cardData.link;
+//cardImageEl.alt = cardData.name + " " + "Image";
+//cardTitleEl.textContent = cardData.name;
+//return cardElement;
+//}
 
 //function handleLikeIcon(evt) {
 //evt.target.classList.toggle("card__like-button_active");
@@ -114,6 +114,13 @@ function getCardElement(cardData) {
 //function handleDeleteCard(evt) {
 //evt.target.closest(".card").remove();
 //}
+
+function handleImageClick() {
+  imagePreviewPopup.src = cardData.link;
+  imagePreviewPopup.alt = cardData.name + " " + "Image";
+  titlePreviewPopup.textContent = cardData.name;
+  openPopup(previewPopup);
+}
 
 function handleProfileEditSubmit(evt) {
   evt.preventDefault();
@@ -134,6 +141,19 @@ function handleAddCardFormSubmit(evt) {
   closePopup(cardEditModal);
   evt.target.reset();
 }
+
+//function handleAddCardFormSubmit(evt) {
+//evt.preventDefault();
+//const name = cardTitleInput.value;
+//const link = cardUrlInput.value;
+//const cardElement = getCardElement({
+//name,
+//link,
+//});
+//cardListEl.prepend(cardElement);
+//closePopup(cardEditModal);
+//evt.target.reset();
+//}
 
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
@@ -156,6 +176,10 @@ imageModalCloseBtn.addEventListener("click", () => {
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
+
+//initialCards.forEach((cardData) => {
+//cardListEl.prepend(getCardElement(cardData));
+//});
 
 initialCards.forEach((cardData) => {
   cardListEl.prepend(getCardElement(cardData));
