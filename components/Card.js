@@ -34,11 +34,9 @@ export default class Card {
   }
 
   _handleLikeIcon() {
-    //evt.target.classList.toggle("card__like-button_active");
     this._cardElement
       .querySelector(".card__like-button")
       .classList.toggle("card__like-button_active");
-    //this._likeBtn.classList.toggle("card__like-button_active");
   }
 
   getView() {
@@ -52,7 +50,6 @@ export default class Card {
     this._cardImageEl.src = this._link;
     this._cardImageEl.alt = this._data.name + " " + "Image";
     this._cardTitleEl.textContent = this._data.name;
-    //this._likeBtn = this._cardElement.querySelector(".card__like-button");
     //set event listeners
     this._setEventListeners();
     //return the card

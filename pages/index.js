@@ -28,16 +28,10 @@ const initialCards = [
   },
 ];
 
-const cardData = {
-  name: "Yosemite Valley",
-  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-};
-
-function getCardElement(cardData) {
-  const card = new Card(cardData, "#card-template", handleImageClick);
-  const cardElement = card.getView();
-  return cardElement;
-}
+//const cardData = {
+//name: "Yosemite Valley",
+//link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+//};
 
 //const card = new Card(cardData, "#card-template", handleImageClick);
 //card.getView();
@@ -115,7 +109,7 @@ function closePopupByEscape(evt) {
 //evt.target.closest(".card").remove();
 //}
 
-function handleImageClick() {
+function handleImageClick(cardData) {
   imagePreviewPopup.src = cardData.link;
   imagePreviewPopup.alt = cardData.name + " " + "Image";
   titlePreviewPopup.textContent = cardData.name;
@@ -142,18 +136,11 @@ function handleAddCardFormSubmit(evt) {
   evt.target.reset();
 }
 
-//function handleAddCardFormSubmit(evt) {
-//evt.preventDefault();
-//const name = cardTitleInput.value;
-//const link = cardUrlInput.value;
-//const cardElement = getCardElement({
-//name,
-//link,
-//});
-//cardListEl.prepend(cardElement);
-//closePopup(cardEditModal);
-//evt.target.reset();
-//}
+function getCardElement(cardData) {
+  const card = new Card(cardData, "#card-template", handleImageClick);
+  const cardElement = card.getView();
+  return cardElement;
+}
 
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
@@ -177,6 +164,10 @@ imageModalCloseBtn.addEventListener("click", () => {
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
 
+function renderCard(cardData, wrapper) {
+  const cardElement = getCardElement(cardData);
+  wrapper.prepend(cardElement);
+}
 //initialCards.forEach((cardData) => {
 //cardListEl.prepend(getCardElement(cardData));
 //});
@@ -186,18 +177,33 @@ initialCards.forEach((cardData) => {
 });
 
 //Validation
-const validationSettings = {
-  inputSelector: ".modal__field",
+//const validationSettings = {
+//inputSelector: ".modal__field",
+//submitButtonSelector: ".modal__button",
+//inactiveButtonClass: "modal__button_disabled",
+//inputErrorClass: "modal__input_type_error",
+//errorClass: "modal__error_visible",
+//};
+
+//const editFormElement = profileEditModal.querySelector(".modal__form");
+//const addFormElement = document.querySelector("#add-card-form");
+//const editFormValidator = new FormValidator(
+//validationSettings,
+//editFormElement
+//);
+//const addFormValidator = new FormValidator(validationSettings, addFormElement);
+
+const config = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
   submitButtonSelector: ".modal__button",
   inactiveButtonClass: "modal__button_disabled",
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
 };
 
-const editFormElement = profileEditModal.querySelector(".modal__form");
-const addFormElement = document.querySelector("#add-card-form");
-const editFormValidator = new FormValidator(
-  validationSettings,
-  editFormElement
-);
-const addFormValidator = new FormValidator(validationSettings, addFormElement);
+const profileEditValidator = new FormValidator(config, profileEditForm);
+const addCardValidator = new FormValidator(config, addCardFormElement);
+
+profileEditValidator.enableValidation();
+addCardValidator.enableValidation();
