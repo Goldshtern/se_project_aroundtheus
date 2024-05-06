@@ -164,10 +164,6 @@ imageModalCloseBtn.addEventListener("click", () => {
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
 
-function renderCard(cardData, wrapper) {
-  const cardElement = getCardElement(cardData);
-  wrapper.prepend(cardElement);
-}
 //initialCards.forEach((cardData) => {
 //cardListEl.prepend(getCardElement(cardData));
 //});
@@ -176,34 +172,19 @@ initialCards.forEach((cardData) => {
   cardListEl.prepend(getCardElement(cardData));
 });
 
-//Validation
-//const validationSettings = {
-//inputSelector: ".modal__field",
-//submitButtonSelector: ".modal__button",
-//inactiveButtonClass: "modal__button_disabled",
-//inputErrorClass: "modal__input_type_error",
-//errorClass: "modal__error_visible",
-//};
-
-//const editFormElement = profileEditModal.querySelector(".modal__form");
-//const addFormElement = document.querySelector("#add-card-form");
-//const editFormValidator = new FormValidator(
-//validationSettings,
-//editFormElement
-//);
-//const addFormValidator = new FormValidator(validationSettings, addFormElement);
-
-const config = {
-  formSelector: ".modal__form",
-  inputSelector: ".modal__input",
+//---------------------------------Validation------------------------------//
+const validationSettings = {
+  inputSelector: ".modal__field",
   submitButtonSelector: ".modal__button",
   inactiveButtonClass: "modal__button_disabled",
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
 };
 
-const profileEditValidator = new FormValidator(config, profileEditForm);
-const addCardValidator = new FormValidator(config, addCardFormElement);
-
-profileEditValidator.enableValidation();
-addCardValidator.enableValidation();
+const editFormElement = profileEditModal.querySelector(".modal__form");
+const addFormElement = document.querySelector("#add-card-form");
+const editFormValidator = new FormValidator(
+  validationSettings,
+  editFormElement
+);
+const addFormValidator = new FormValidator(validationSettings, addFormElement);
