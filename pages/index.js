@@ -1,5 +1,6 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
+import Section from "../components/Section.js";
 
 const initialCards = [
   {
@@ -165,3 +166,12 @@ const addCardValidator = new FormValidator(config, addCardFormElement);
 
 profileEditValidator.enableValidation();
 addCardValidator.enableValidation();
+
+const cardSection = new Section(
+  {
+    items: initialCards,
+    renderer: renderCard,
+  },
+  ".gallery__cards"
+);
+cardSection.renderItems();
