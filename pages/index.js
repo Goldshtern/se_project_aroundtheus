@@ -69,8 +69,8 @@ const imageModalCloseBtn = document.querySelector("#image-modal-close-button");
 //openPopup(previewPopup);
 //}
 
-function handleImageClick(data) {
-  popupImage.open(data);
+function handleImageClick(cardData) {
+  popupImage.open(cardData);
 }
 
 function handleProfileEditSubmit(inputValues) {
@@ -92,14 +92,20 @@ function handleProfileEditSubmit(inputValues) {
 //addCardValidator.disableButton();
 //}
 
+//function handleAddCardFormSubmit(data) {
+//const { name, link } = data;
+//const cardData = { name: name, link: link };
+//const cardElement = getCardElement(cardData);
+//cardSection.addItem(cardElement);
+//newCardPopup.close();
+//newCardPopup.resetForm();
+//addCardValidator.disableButton();
+//}
+
 function handleAddCardFormSubmit(data) {
-  const { name, link } = data;
-  const cardData = { name: name, link: link };
-  const cardElement = getCardElement(cardData);
-  cardSection.addItem(cardElement);
+  console.log(data);
+  cardSection.addItem(getCardElement({ name: data.name, link: data.link }));
   newCardPopup.close();
-  newCardPopup.reset();
-  addCardValidator.disableButton();
 }
 
 //-----------------------------------event listeners--------------------------//
@@ -205,7 +211,6 @@ const cardSection = new Section(
   },
   ".gallery__cards"
 );
-
 cardSection.renderItems();
 
 const popupImage = new PopupWithImage("#modal-image");
