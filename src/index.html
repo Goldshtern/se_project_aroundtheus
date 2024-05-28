@@ -10,14 +10,14 @@
       name="keywords"
       content="nature, landscape, USA, html, css, tripleten"
     />
-    <link rel="stylesheet" href="./pages/index.css" />
+    <!-- <link rel="stylesheet" href="./pages/index.css" /-->
     <link rel="shortcut icon" href="favicon.ico" />
   </head>
   <body class="page">
     <div class="page__content">
       <header class="header page__section">
         <img
-          src="./images/logo.svg"
+          src="<%=require('./images/logo.svg')%>"
           alt="Around The U.S. logo"
           class="header__logo"
         />
@@ -25,7 +25,7 @@
       <main class="content">
         <section class="profile page__section">
           <img
-            src="./images/jacques-cousteau.jpg"
+            src="<%=require('./images/jacques-cousteau.jpg')%>"
             alt="Avatar Jacques Cousteau"
             class="profile__image"
           />
@@ -110,7 +110,7 @@
             class="modal__field"
             id="card-title-input"
             type="text"
-            name="card-title"
+            name="name"
             placeholder="Title"
             minlength="2"
             maxlength="40"
@@ -121,7 +121,7 @@
             class="modal__field"
             id="image-URL-input"
             type="url"
-            name="URL"
+            name="link"
             placeholder="Image link"
             minlength="2"
             maxlength="200"
@@ -160,7 +160,7 @@
       </li>
     </template>
 
-    <script src="./pages/index.js" type="module"></script>
+    <!--<script src="./pages/index.js" type="module"></script>-->
     <!--<script src="./scripts/validation.js"></script>-->
   </body>
 </html>

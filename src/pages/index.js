@@ -4,6 +4,7 @@ import Section from "../components/Section.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
+import "../pages/index.css";
 
 const initialCards = [
   {
@@ -79,6 +80,7 @@ function handleProfileEditSubmit(inputValues) {
   //profileTitle.textContent = profileTitleInput.value;
   //profileDescription.textContent = profileDescriptionInput.value;
   //closePopup(profileEditModal);
+  profileEditValidator.disableButton();
   profileEditPopup.close();
 }
 
@@ -91,20 +93,11 @@ function handleProfileEditSubmit(inputValues) {
 //closePopup(cardEditModal);
 //addCardValidator.disableButton();
 //}
-
-//function handleAddCardFormSubmit(data) {
-//const { name, link } = data;
-//const cardData = { name: name, link: link };
-//const cardElement = getCardElement(cardData);
-//cardSection.addItem(cardElement);
-//newCardPopup.close();
-//newCardPopup.resetForm();
-//addCardValidator.disableButton();
-//}
-
-function handleAddCardFormSubmit(data) {
-  console.log(data);
-  cardSection.addItem(getCardElement({ name: data.name, link: data.link }));
+function handleAddCardFormSubmit(cardData) {
+  cardSection.addItem(
+    getCardElement({ name: cardData.name, link: cardData.link })
+  );
+  addCardValidator.disableButton();
   newCardPopup.close();
 }
 
@@ -180,10 +173,10 @@ function getCardElement(cardData) {
   return cardElement;
 }
 
-function renderCard(cardData) {
-  const card = getCardElement(cardData);
-  cardListEl.prepend(card);
-}
+//function renderCard(cardData) {
+//const card = getCardElement(cardData);
+// cardListEl.prepend(card);
+//}
 
 //-----------------instantiations------------------------------//
 const config = {
