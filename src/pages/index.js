@@ -27,15 +27,6 @@ function handleProfileEditSubmit(inputValues) {
   profileEditPopup.close();
 }
 
-//function handleAddCardFormSubmit(evt) {
-//evt.preventDefault();
-//const name = cardTitleInput.value;
-//const link = cardUrlInput.value;
-//renderCard({ name, link });
-//evt.target.reset();
-//closePopup(cardEditModal);
-//addCardValidator.disableButton();
-//}
 function handleAddCardFormSubmit(cardData) {
   cardSection.addItem(
     getCardElement({ name: cardData.name, link: cardData.link })
@@ -45,12 +36,6 @@ function handleAddCardFormSubmit(cardData) {
 }
 
 //-----------------------------------event listeners--------------------------//
-//profileEditButton.addEventListener("click", () => {
-//profileTitleInput.value = profileTitle.textContent;
-//profileDescriptionInput.value = profileDescription.textContent;
-//openPopup(profileEditModal);
-//profileEditPopup.open();
-//});
 
 profileEditButton.addEventListener("click", () => {
   const data = userInfo.getUserInfo();
@@ -62,26 +47,6 @@ profileEditButton.addEventListener("click", () => {
 addNewCardButton.addEventListener("click", () => {
   newCardPopup.open();
 });
-
-//profileCloseBtn.addEventListener("click", () => {
-//closePopup(profileEditModal);
-//profileEditPopup.close();
-//});
-//cardModalCloseBtn.addEventListener("click", () => {
-//closePopup(cardEditModal);
-//newCardPopup.close();
-//});
-//imageModalCloseBtn.addEventListener("click", () => {
-//closePopup(previewPopup);
-//popupImage.close();
-//});
-
-//profileEditForm.addEventListener("submit", handleProfileEditSubmit);
-//addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
-
-//initialCards.forEach((cardData) => {
-//cardListEl.prepend(getCardElement(cardData));
-//});
 
 //---------------------------------functions---------------------------------//
 function getCardElement(cardData) {
