@@ -32,6 +32,7 @@ function handleAddCardFormSubmit(cardData) {
     getCardElement({ name: cardData.name, link: cardData.link })
   );
   addCardValidator.disableButton();
+  newCardPopup.resetForm();
   newCardPopup.close();
 }
 
