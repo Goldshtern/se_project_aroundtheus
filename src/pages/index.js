@@ -15,6 +15,16 @@ import {
   profileTitleInput,
   profileDescriptionInput,
 } from "../utils/constants.js";
+import Api from "../components/Api.js";
+
+//----------------------------------API--------------------------------------//
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "096eb059-8249-432c-aed5-ea6f0d18c1d5",
+    "Content-Type": "application/json",
+  },
+});
 
 //----------------------------event handlers---------------------------------//
 function handleImageClick(cardData) {
