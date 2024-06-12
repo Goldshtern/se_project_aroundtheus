@@ -6,16 +6,16 @@ export default class Api {
 
   //-----CARD ROUTE: Get all cards (GET)----//
   getInitialCards() {
-    return fetch("https://around-api.en.tripleten-services.com/v1/cards", {
-      headers: {
-        authorization: "096eb059-8249-432c-aed5-ea6f0d18c1d5",
-      },
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Error: ${res.status}`);
-    });
+    return fetch(`${this._baseUrl}/cards`, { headers: this._headers })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(`Error: ${res.status}`);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }
   //----USER ROUTE: Get the current user’s info (GET)-----//
   getUser() {

@@ -26,6 +26,24 @@ const api = new Api({
   },
 });
 
+let cardSection;
+api
+  .getInitialCards()
+  .then((cardData) => {
+    cardSection = new Section(
+      {
+        items: initialCards,
+        renderer: (cardData) => {
+          const cardElement = getCardElement(cardData);
+          cardSection.addItem(cardElement);
+        },
+      },
+      ".gallery__cards"
+    );
+    cardSection.renderItems();
+  })
+  .catch((err) => console.error(err));
+
 //----------------------------event handlers---------------------------------//
 function handleImageClick(cardData) {
   popupImage.open(cardData);
@@ -73,17 +91,17 @@ const addCardValidator = new FormValidator(config, addCardFormElement);
 profileEditValidator.enableValidation();
 addCardValidator.enableValidation();
 
-const cardSection = new Section(
-  {
-    items: initialCards,
-    renderer: (cardData) => {
-      const cardElement = getCardElement(cardData);
-      cardSection.addItem(cardElement);
-    },
-  },
-  ".gallery__cards"
-);
-cardSection.renderItems();
+//const cardSection = new Section(
+//{
+//items: initialCards,
+//renderer: (cardData) => {
+//const cardElement = getCardElement(cardData);
+//cardSection.addItem(cardElement);
+//},
+//},
+//".gallery__cards"
+//);
+//cardSection.renderItems();
 
 const popupImage = new PopupWithImage("#modal-image");
 popupImage.setEventListeners();
