@@ -6,7 +6,7 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 import "../pages/index.css";
 import {
-  initialCards,
+  //initialCards,
   config,
   profileEditForm,
   addCardFormElement,
@@ -14,9 +14,9 @@ import {
   addNewCardButton,
   profileTitleInput,
   profileDescriptionInput,
+  //cardListEl,
 } from "../utils/constants.js";
 import Api from "../components/Api.js";
-
 //----------------------------------API--------------------------------------//
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
@@ -32,7 +32,7 @@ api
   .then((cardData) => {
     cardSection = new Section(
       {
-        items: initialCards,
+        items: cardData,
         renderer: (cardData) => {
           const cardElement = getCardElement(cardData);
           cardSection.addItem(cardElement);
@@ -43,6 +43,32 @@ api
     cardSection.renderItems();
   })
   .catch((err) => console.error(err));
+
+api.getUser().then((inputValues) => {
+  userInfo.setUserInfo(inputValues.name, inputValues.about);
+});
+
+function handleAddCardFormSubmit(cardData) {
+  //newCardPopup.renderLoading(true);
+  api
+    .addCard(cardData)
+    .then((cardData) => {
+      cardSection.addItem(
+        getCardElement({ name: cardData.name, link: cardData.link })
+      );
+      addCardValidator.disableButton();
+      newCardPopup.resetForm();
+      newCardPopup.close();
+    })
+    .catch((error) => {
+      console.error("Error adding card:", error);
+    });
+  //.finally(() => {
+  //newCardPopup.renderLoading(false);
+  //});
+}
+
+//api.removeCard("666dfa668bacc8001af7bb10").then((res) => console.log(res));
 
 //----------------------------event handlers---------------------------------//
 function handleImageClick(cardData) {
@@ -55,14 +81,14 @@ function handleProfileEditSubmit(inputValues) {
   profileEditPopup.close();
 }
 
-function handleAddCardFormSubmit(cardData) {
-  cardSection.addItem(
-    getCardElement({ name: cardData.name, link: cardData.link })
-  );
-  addCardValidator.disableButton();
-  newCardPopup.resetForm();
-  newCardPopup.close();
-}
+//function handleAddCardFormSubmit(cardData) {
+//cardSection.addItem(
+//getCardElement({ name: cardData.name, link: cardData.link })
+//);
+//addCardValidator.disableButton();
+//newCardPopup.resetForm();
+//newCardPopup.close();
+//}
 
 //-----------------------------------event listeners--------------------------//
 

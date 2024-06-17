@@ -1,8 +1,9 @@
 export default class Card {
-  constructor({ name, link }, cardSelector, handleImageClick) {
-    this._data = { name, link };
+  constructor({ name, link, id }, cardSelector, handleImageClick) {
+    this._data = { name, link, id };
     this._name = name;
     this._link = link;
+    this._id = id;
     this._cardSelector = cardSelector;
     this._handleImageClick = handleImageClick;
   }
@@ -32,6 +33,10 @@ export default class Card {
 
   _handleLikeIcon() {
     this._likeBtn.classList.toggle("card__like-button_active");
+  }
+
+  getId() {
+    return this._id;
   }
 
   getView() {
