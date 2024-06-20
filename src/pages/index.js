@@ -17,6 +17,9 @@ import {
   //cardListEl,
 } from "../utils/constants.js";
 import Api from "../components/Api.js";
+import { data } from "autoprefixer";
+import PopupConfirmDelete from "../components/popupConfirmDelete.js";
+import cssnanoPlugin from "cssnano";
 //----------------------------------API--------------------------------------//
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
@@ -68,15 +71,15 @@ function handleAddCardFormSubmit(cardData) {
   //});
 }
 
-//api.removeCard("666dfa668bacc8001af7bb10").then((res) => console.log(res));
-
+//api.removeCard("666dfa668bacc8001af7bb12").then((res) => console.log(res));
+//api.editProfile(data).then((res) => console.log(res));
 //----------------------------event handlers---------------------------------//
 function handleImageClick(cardData) {
   popupImage.open(cardData);
 }
 
 function handleProfileEditSubmit(inputValues) {
-  userInfo.setUserInfo(inputValues.name, inputValues.job);
+  userInfo.setUserInfo(inputValues.name, inputValues.about);
   profileEditValidator.disableButton();
   profileEditPopup.close();
 }
@@ -105,7 +108,12 @@ addNewCardButton.addEventListener("click", () => {
 
 //---------------------------------functions---------------------------------//
 function getCardElement(cardData) {
-  const card = new Card(cardData, "#card-template", handleImageClick);
+  const card = new Card(
+    cardData,
+    "#card-template",
+    handleImageClick,
+    handleDeleteCard
+  );
   const cardElement = card.getView();
   return cardElement;
 }
@@ -143,5 +151,23 @@ const profileEditPopup = new PopupWithForm(
   handleProfileEditSubmit
 );
 profileEditPopup.setEventListeners();
+
+const deleteCardPopup = new PopupConfirmDelete("#modal-delete-card");
+deleteCardPopup.setEventListeners();
+
+function handleDeleteCard(card) {
+  deleteCardPopup.open();
+  deleteCardPopup.setConfirmDelete(() => {
+    api
+      .removeCard(card._id)
+      .then(() => {
+        deleteCardPopup.close;
+        card.removeCardElement();
+      })
+      .catch((err) => {
+        console.error("Error deleting card:", err);
+      });
+  });
+}
 
 const userInfo = new UserInfo(".profile__title", ".profile__description");

@@ -49,7 +49,18 @@ export default class Api {
 
   //------------USER ROUTE: Update profile information (PATCH)----///
   editProfile() {
-    // ...
+    return fetch(`${this._baseUrl}/users/me`, {
+      method: "PATCH",
+      headers: this._headers,
+      body: JSON.stringify({
+        name: "Aleksandr",
+        about: "Developer",
+      }),
+    })
+      .then(this._checkResponse)
+      .catch((err) => {
+        console.error(err);
+      });
   }
   //--------------CARD ROUTE: Delete a card (DELETE)-----//
   removeCard(cardID) {
