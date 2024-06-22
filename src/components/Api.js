@@ -63,8 +63,8 @@ export default class Api {
       });
   }
   //--------------CARD ROUTE: Delete a card (DELETE)-----//
-  removeCard(cardID) {
-    return fetch(`${this._baseUrl}/cards/${cardID}`, {
+  removeCard(cardId) {
+    return fetch(`${this._baseUrl}/cards/${cardId}`, {
       method: "DELETE",
       headers: this._headers,
     })

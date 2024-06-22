@@ -21,7 +21,7 @@ export default class Card {
     });
     //".card__delete-button"
     this._deleteBtn.addEventListener("click", () => {
-      this._handleDeleteCard();
+      this._handleDeleteCard(this._id, this._cardElement);
     });
     //image preview
     this._cardImageEl.addEventListener("click", () => {
@@ -35,10 +35,6 @@ export default class Card {
   _handleLikeIcon() {
     this._likeBtn.classList.toggle("card__like-button_active");
   }
-
-  //getId() {
-  //return this._id;
-  //}
 
   getView() {
     this._cardElement = document
@@ -58,6 +54,7 @@ export default class Card {
     //return the card
     return this._cardElement;
   }
+
   removeCardElement() {
     this._cardElement.remove();
     this._cardElement = null;

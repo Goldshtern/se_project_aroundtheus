@@ -17,9 +17,7 @@ import {
   //cardListEl,
 } from "../utils/constants.js";
 import Api from "../components/Api.js";
-import { data } from "autoprefixer";
 import PopupConfirmDelete from "../components/popupConfirmDelete.js";
-import cssnanoPlugin from "cssnano";
 //----------------------------------API--------------------------------------//
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
@@ -63,15 +61,15 @@ function handleAddCardFormSubmit(cardData) {
       newCardPopup.resetForm();
       newCardPopup.close();
     })
-    .catch((error) => {
-      console.error("Error adding card:", error);
+    .catch((err) => {
+      console.err("Error adding card:", err);
     });
   //.finally(() => {
   //newCardPopup.renderLoading(false);
   //});
 }
 
-//api.removeCard("666dfa668bacc8001af7bb12").then((res) => console.log(res));
+//api.removeCard("666dfa668bacc8001af7baff").then((res) => console.log(res));
 //api.editProfile(data).then((res) => console.log(res));
 //----------------------------event handlers---------------------------------//
 function handleImageClick(cardData) {
@@ -155,18 +153,17 @@ profileEditPopup.setEventListeners();
 const deleteCardPopup = new PopupConfirmDelete("#modal-delete-card");
 deleteCardPopup.setEventListeners();
 
-function handleDeleteCard(card) {
+function handleDeleteCard(cardId, cardElement) {
+  console.log(cardId, cardElement);
   deleteCardPopup.open();
   deleteCardPopup.setConfirmDelete(() => {
-    api
-      .removeCard(card._id)
-      .then(() => {
-        deleteCardPopup.close;
-        card.removeCardElement();
-      })
-      .catch((err) => {
-        console.error("Error deleting card:", err);
-      });
+    api.removeCard(cardId).then(() => {
+      cardElement.removeCardElement();
+      deleteCardPopup.close;
+    });
+    //.catch((err) => {
+    // console.error(err);
+    //});
   });
 }
 
