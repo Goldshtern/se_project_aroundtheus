@@ -48,14 +48,11 @@ export default class Api {
   }
 
   //------------USER ROUTE: Update profile information (PATCH)----///
-  editProfile() {
+  editProfile(name, about) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._headers,
-      body: JSON.stringify({
-        name: "Aleksandr",
-        about: "Developer",
-      }),
+      body: JSON.stringify({ name, about }),
     })
       .then(this._checkResponse)
       .catch((err) => {

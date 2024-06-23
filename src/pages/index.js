@@ -69,17 +69,22 @@ function handleAddCardFormSubmit(cardData) {
   //});
 }
 
-//api.removeCard("666dfa668bacc8001af7baff").then((res) => console.log(res));
-//api.editProfile(data).then((res) => console.log(res));
 //----------------------------event handlers---------------------------------//
 function handleImageClick(cardData) {
   popupImage.open(cardData);
 }
 
 function handleProfileEditSubmit(inputValues) {
-  userInfo.setUserInfo(inputValues.name, inputValues.about);
-  profileEditValidator.disableButton();
-  profileEditPopup.close();
+  api
+    .editProfile(inputValues.name, inputValues.about)
+    .then((res) => {
+      userInfo.setUserInfo(res);
+      profileEditValidator.disableButton();
+      profileEditPopup.close();
+    })
+    .catch((err) => {
+      console.err(err);
+    });
 }
 
 //function handleAddCardFormSubmit(cardData) {
@@ -93,15 +98,15 @@ function handleProfileEditSubmit(inputValues) {
 
 //-----------------------------------event listeners--------------------------//
 
+addNewCardButton.addEventListener("click", () => {
+  newCardPopup.open();
+});
+
 profileEditButton.addEventListener("click", () => {
   const data = userInfo.getUserInfo();
   profileTitleInput.value = data.name;
-  profileDescriptionInput.value = data.job;
+  profileDescriptionInput.value = data.about;
   profileEditPopup.open();
-});
-
-addNewCardButton.addEventListener("click", () => {
-  newCardPopup.open();
 });
 
 //---------------------------------functions---------------------------------//
@@ -153,17 +158,19 @@ profileEditPopup.setEventListeners();
 const deleteCardPopup = new PopupConfirmDelete("#modal-delete-card");
 deleteCardPopup.setEventListeners();
 
-function handleDeleteCard(cardId, cardElement) {
-  console.log(cardId, cardElement);
+function handleDeleteCard(card) {
+  console.log(card);
   deleteCardPopup.open();
   deleteCardPopup.setConfirmDelete(() => {
-    api.removeCard(cardId).then(() => {
-      cardElement.removeCardElement();
-      deleteCardPopup.close;
-    });
-    //.catch((err) => {
-    // console.error(err);
-    //});
+    api
+      .removeCard(card.id)
+      .then(() => {
+        card.removeCardElement();
+        deleteCardPopup.close();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   });
 }
 
