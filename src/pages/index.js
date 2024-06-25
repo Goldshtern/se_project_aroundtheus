@@ -115,7 +115,8 @@ function getCardElement(cardData) {
     cardData,
     "#card-template",
     handleImageClick,
-    handleDeleteCard
+    handleDeleteCard,
+    handleLikeIcon
   );
   const cardElement = card.getView();
   return cardElement;
@@ -155,11 +156,46 @@ const profileEditPopup = new PopupWithForm(
 );
 profileEditPopup.setEventListeners();
 
+function handleLikeIcon(card) {
+  if (card.isLiked) {
+    api
+      .removeLike(card.id)
+      .then(() => {
+        card.setIsLiked(false);
+      })
+      .catch((err) => console.error(err));
+  } else {
+    api
+      .addLike(card.id)
+      .then(() => {
+        card.setIsLiked(true);
+      })
+      .catch((err) => console.error(err));
+  }
+}
+
+//function handleLikeIcon(card) {
+//if (!card.isLiked) {
+//api
+//.addLike(card.id)
+//.then(() => {
+//card.setIsLiked(true);
+//})
+//.catch((err) => console.error(err));
+//} else {
+//api
+//.removeLike(card.id)
+//.then(() => {
+//card.setIsLiked(false);
+//})
+//.catch((err) => console.error(err));
+//}
+//}
+
 const deleteCardPopup = new PopupConfirmDelete("#modal-delete-card");
 deleteCardPopup.setEventListeners();
 
 function handleDeleteCard(card) {
-  console.log(card);
   deleteCardPopup.open();
   deleteCardPopup.setConfirmDelete(() => {
     api

@@ -71,12 +71,28 @@ export default class Api {
       });
   }
   //-----------CARD ROUTE: Like a card (PUT)----//
-  addLike() {
-    // ...
+  addLike(cardId) {
+    return fetch(`${this._baseUrl}/cards/${cardId}/likes/`, {
+      method: "PUT",
+      headers: this._headers,
+      body: JSON.stringify({ isLiked: true }),
+    })
+      .then(this._checkResponse)
+      .catch((err) => {
+        console.error(err);
+      });
   }
   //-----------CARD ROUTE: Dislike a card (DELETE)----//
-  removeLike() {
-    // ...
+  removeLike(cardId) {
+    return fetch(`${this._baseUrl}/cards/${cardId}/likes/`, {
+      method: "DELETE",
+      headers: this._headers,
+      body: JSON.stringify({ isLiked: false }),
+    })
+      .then(this._checkResponse)
+      .catch((err) => {
+        console.error(err);
+      });
   }
   //-------------USER ROUTE: Update avatar (PATCH)----//
   updateAvatar() {}
