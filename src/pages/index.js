@@ -174,24 +174,6 @@ function handleLikeIcon(card) {
   }
 }
 
-//function handleLikeIcon(card) {
-//if (!card.isLiked) {
-//api
-//.addLike(card.id)
-//.then(() => {
-//card.setIsLiked(true);
-//})
-//.catch((err) => console.error(err));
-//} else {
-//api
-//.removeLike(card.id)
-//.then(() => {
-//card.setIsLiked(false);
-//})
-//.catch((err) => console.error(err));
-//}
-//}
-
 const deleteCardPopup = new PopupConfirmDelete("#modal-delete-card");
 deleteCardPopup.setEventListeners();
 
