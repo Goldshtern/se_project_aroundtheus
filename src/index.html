@@ -50,25 +50,6 @@
             class="profile__add-button"
             id="profile-add-button"
           ></button>
-          <!--<img
-            src="<%=require('./images/jacques-cousteau.jpg')%>"
-            alt="Avatar Jacques Cousteau"
-            class="profile__image"
-          />
-          <div class="profile__info">
-            <h1 class="profile__title">Jacques Cousteau</h1>
-            <button
-              type="button"
-              class="profile__edit-button"
-              id="profile-edit-button"
-            ></button>
-            <p class="profile__description">Explorer</p>
-          </div>
-          <button
-            type="button"
-            class="profile__add-button"
-            id="profile-add-button"
-          ></button>-->
         </section>
         <section class="gallery page__section">
           <ul class="gallery__cards"></ul>
@@ -185,6 +166,19 @@
         <p class="modal__heading">Are you sure?</p>
         <form class="modal__form" id="delete-card-form">
           <button class="modal__button" type="submit">Yes</button>
+        </form>
+      </div>
+    </div>
+    <div class="modal" id="modal-update-avatar">
+      <div class="modal__container">
+        <button
+          id="update-avatar-close-button"
+          class="modal__close-button"
+          type="button"
+        ></button>
+        <p class="modal__heading">Change profile picture</p>
+        <form class="modal__form" id="update-avatar-form">
+          <button class="modal__button" type="submit">Save</button>
         </form>
       </div>
     </div>
