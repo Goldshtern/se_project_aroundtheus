@@ -24,7 +24,33 @@
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img
+          <div class="profile__avatar">
+            <img
+              src="<%=require('./images/avatar-2.jpg')%>"
+              alt="Avatar"
+              class="profile__image"
+            />
+            <button
+              type="button"
+              class="profile__avatar-button"
+              id="avatar-edit-button"
+            ></button>
+          </div>
+          <div class="profile__info">
+            <h1 class="profile__title"></h1>
+            <button
+              type="button"
+              class="profile__edit-button"
+              id="profile-edit-button"
+            ></button>
+            <p class="profile__description"></p>
+          </div>
+          <button
+            type="button"
+            class="profile__add-button"
+            id="profile-add-button"
+          ></button>
+          <!--<img
             src="<%=require('./images/jacques-cousteau.jpg')%>"
             alt="Avatar Jacques Cousteau"
             class="profile__image"
@@ -42,7 +68,7 @@
             type="button"
             class="profile__add-button"
             id="profile-add-button"
-          ></button>
+          ></button>-->
         </section>
         <section class="gallery page__section">
           <ul class="gallery__cards"></ul>

@@ -95,5 +95,15 @@ export default class Api {
       });
   }
   //-------------USER ROUTE: Update avatar (PATCH)----//
-  updateAvatar() {}
+  updateAvatar(avatar) {
+    return fetch(`${this._baseUrl}/users/me/avatar`, {
+      method: "PATCH",
+      headers: this._headers,
+      body: JSON.stringify({ avatar }),
+    })
+      .then(this._checkResponse)
+      .catch((err) => {
+        console.error(err);
+      });
+  }
 }
