@@ -14,6 +14,8 @@ import {
   addNewCardButton,
   profileTitleInput,
   profileDescriptionInput,
+  profileAvatarButton,
+  editAvatarForm,
   //cardListEl,
 } from "../utils/constants.js";
 import Api from "../components/Api.js";
@@ -26,6 +28,12 @@ const api = new Api({
     "Content-Type": "application/json",
   },
 });
+
+const userInfo = new UserInfo(
+  ".profile__title",
+  ".profile__description",
+  ".profile__image"
+);
 
 let cardSection;
 api
@@ -125,9 +133,11 @@ function getCardElement(cardData) {
 //-----------------instantiations------------------------------//
 const profileEditValidator = new FormValidator(config, profileEditForm);
 const addCardValidator = new FormValidator(config, addCardFormElement);
+const addAvatarValidator = new FormValidator(config, editAvatarForm);
 
 profileEditValidator.enableValidation();
 addCardValidator.enableValidation();
+addAvatarValidator.enableValidation();
 
 //const cardSection = new Section(
 //{
@@ -192,4 +202,16 @@ function handleDeleteCard(card) {
   });
 }
 
-const userInfo = new UserInfo(".profile__title", ".profile__description");
+profileAvatarButton.addEventListener("click", () => {
+  avatarEditPopup.open();
+});
+
+const avatarEditPopup = new PopupWithForm(
+  "#modal-update-avatar",
+  handleAvatarSubmit
+);
+avatarEditPopup.setEventListeners();
+
+function handleAvatarSubmit({ link }) {
+  //...
+}

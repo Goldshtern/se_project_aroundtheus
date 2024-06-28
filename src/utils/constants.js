@@ -37,9 +37,13 @@ export const config = {
 //---------------------forms----------------------------------------------//
 export const profileEditForm = document.forms["add-profile-form"];
 export const addCardFormElement = document.forms["add-card-form"];
+export const editAvatarForm = document.forms["add-avatar-form"];
 //----------------------page buttons--------------------------------------//
 export const profileEditButton = document.querySelector("#profile-edit-button");
 export const addNewCardButton = document.querySelector("#profile-add-button");
+export const profileAvatarButton = document.querySelector(
+  "#avatar-edit-button"
+);
 //-----------------------cards----------------------------------------------//
 export const cardListEl = document.querySelector(".gallery__cards");
 //--------------------------prevew image element----------------------------//
