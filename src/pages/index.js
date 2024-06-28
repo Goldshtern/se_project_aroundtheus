@@ -58,7 +58,7 @@ api.getUser().then((inputValues) => {
 });
 
 function handleAddCardFormSubmit(cardData) {
-  //newCardPopup.renderLoading(true);
+  newCardPopup.viewLoading(true);
   api
     .addCard(cardData)
     .then((cardData) => {
@@ -70,11 +70,11 @@ function handleAddCardFormSubmit(cardData) {
       newCardPopup.close();
     })
     .catch((err) => {
-      console.err("Error adding card:", err);
+      console.err(err);
+    })
+    .finally(() => {
+      newCardPopup.viewLoading(false);
     });
-  //.finally(() => {
-  //newCardPopup.renderLoading(false);
-  //});
 }
 
 //----------------------------event handlers---------------------------------//
@@ -83,6 +83,7 @@ function handleImageClick(cardData) {
 }
 
 function handleProfileEditSubmit(inputValues) {
+  profileEditPopup.viewLoading(true);
   api
     .editProfile(inputValues.name, inputValues.about)
     .then((res) => {
@@ -92,20 +93,13 @@ function handleProfileEditSubmit(inputValues) {
     })
     .catch((err) => {
       console.err(err);
+    })
+    .finally(() => {
+      avatarEditPopup.viewLoading(false);
     });
 }
 
-//function handleAddCardFormSubmit(cardData) {
-//cardSection.addItem(
-//getCardElement({ name: cardData.name, link: cardData.link })
-//);
-//addCardValidator.disableButton();
-//newCardPopup.resetForm();
-//newCardPopup.close();
-//}
-
 //-----------------------------------event listeners--------------------------//
-
 addNewCardButton.addEventListener("click", () => {
   newCardPopup.open();
 });
@@ -138,18 +132,6 @@ const addAvatarValidator = new FormValidator(config, editAvatarForm);
 profileEditValidator.enableValidation();
 addCardValidator.enableValidation();
 addAvatarValidator.enableValidation();
-
-//const cardSection = new Section(
-//{
-//items: initialCards,
-//renderer: (cardData) => {
-//const cardElement = getCardElement(cardData);
-//cardSection.addItem(cardElement);
-//},
-//},
-//".gallery__cards"
-//);
-//cardSection.renderItems();
 
 const popupImage = new PopupWithImage("#modal-image");
 popupImage.setEventListeners();
@@ -213,5 +195,17 @@ const avatarEditPopup = new PopupWithForm(
 avatarEditPopup.setEventListeners();
 
 function handleAvatarSubmit({ link }) {
-  //...
+  avatarEditPopup.viewLoading(true);
+  api
+    .updateAvatar(link)
+    .then(() => {
+      userInfo.setAvatar(link);
+      avatarEditPopup.close();
+    })
+    .catch((err) => {
+      console.error(err);
+    })
+    .finally(() => {
+      avatarEditPopup.viewLoading(false);
+    });
 }

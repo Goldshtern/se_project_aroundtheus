@@ -37,7 +37,6 @@ export default class Card {
   _setEventListeners() {
     //".card__like-button"
     this._likeBtn.addEventListener("click", () => {
-      console.log("click", this);
       this._handleLikeIcon(this);
     });
 
