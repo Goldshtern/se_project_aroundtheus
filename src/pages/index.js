@@ -53,9 +53,13 @@ api
   })
   .catch((err) => console.error(err));
 
-api.getUser().then((inputValues) => {
-  userInfo.setUserInfo(inputValues.name, inputValues.about);
-});
+api
+  .getUser()
+  .then((inputValues) => {
+    userInfo.setUserInfo(inputValues.name, inputValues.about);
+    userInfo.setAvatar(inputValues.avatar);
+  })
+  .catch((err) => console.error(err));
 
 function handleAddCardFormSubmit(cardData) {
   newCardPopup.viewLoading(true);
@@ -86,8 +90,8 @@ function handleProfileEditSubmit(inputValues) {
   profileEditPopup.viewLoading(true);
   api
     .editProfile(inputValues.name, inputValues.about)
-    .then((res) => {
-      userInfo.setUserInfo(res);
+    .then((data) => {
+      userInfo.setUserInfo(data.name, data.about);
       profileEditValidator.disableButton();
       profileEditPopup.close();
     })
