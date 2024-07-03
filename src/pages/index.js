@@ -65,10 +65,8 @@ function handleAddCardFormSubmit(cardData) {
   newCardPopup.viewLoading(true);
   api
     .addCard(cardData)
-    .then((cardData) => {
-      cardSection.addItem(
-        getCardElement({ name: cardData.name, link: cardData.link })
-      );
+    .then((data) => {
+      cardSection.addItem(getCardElement(data));
       addCardValidator.disableButton();
       newCardPopup.resetForm();
       newCardPopup.close();

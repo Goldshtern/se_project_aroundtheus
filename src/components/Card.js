@@ -6,7 +6,7 @@ export default class Card {
     handleDeleteCard,
     handleLikeIcon
   ) {
-    this._data = { name, link, _id };
+    this._data = { name, link, _id, isLiked };
     this._name = name;
     this._link = link;
     this.id = _id;

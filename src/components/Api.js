@@ -11,9 +11,8 @@ export default class Api {
   _checkResponse(res) {
     if (res.ok) {
       return res.json();
-    } else {
-      return Promise.reject(`Error: ${res.status}`);
     }
+    return Promise.reject(`Error: ${res.status}`);
   }
 
   //-----CARD ROUTE: Get all cards (GET)----//
