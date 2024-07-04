@@ -35,16 +35,13 @@ export default class Card {
   }
 
   _setEventListeners() {
-    //".card__like-button"
     this._likeBtn.addEventListener("click", () => {
       this._handleLikeIcon(this);
     });
 
-    //".card__delete-button"
     this._deleteBtn.addEventListener("click", () => {
       this._handleDeleteCard(this);
     });
-    //image preview
     this._cardImageEl.addEventListener("click", () => {
       this._handleImageClick({
         name: this._name,
@@ -60,16 +57,13 @@ export default class Card {
       .cloneNode(true);
     this._likeBtn = this._cardElement.querySelector(".card__like-button");
     this._deleteBtn = this._cardElement.querySelector(".card__delete-button");
-    //get the card view
     this._cardImageEl = this._cardElement.querySelector(".card__image");
     this._cardTitleEl = this._cardElement.querySelector(".card__title");
     this._cardImageEl.src = this._link;
     this._cardImageEl.alt = this._data.name + " " + "Image";
     this._cardTitleEl.textContent = this._data.name;
-    //set event listeners
     this._setEventListeners();
     this._renderLikes();
-    //return the card
     return this._cardElement;
   }
 

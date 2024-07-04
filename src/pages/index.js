@@ -6,7 +6,6 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 import "../pages/index.css";
 import {
-  //initialCards,
   config,
   profileEditForm,
   addCardFormElement,
@@ -16,11 +15,10 @@ import {
   profileDescriptionInput,
   profileAvatarButton,
   editAvatarForm,
-  //cardListEl,
 } from "../utils/constants.js";
 import Api from "../components/Api.js";
-import PopupConfirmDelete from "../components/popupConfirmDelete.js";
-//----------------------------------API--------------------------------------//
+import PopupConfirmDelete from "../components/PopupConfirmDelete.js";
+
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
@@ -51,7 +49,7 @@ api
     );
     cardSection.renderItems();
   })
-  .catch((err) => console.error(err));
+  .catch(console.error);
 
 api
   .getUser()
@@ -59,7 +57,7 @@ api
     userInfo.setUserInfo(inputValues.name, inputValues.about);
     userInfo.setAvatar(inputValues.avatar);
   })
-  .catch((err) => console.error(err));
+  .catch(console.error);
 
 function handleAddCardFormSubmit(cardData) {
   newCardPopup.viewLoading(true);
@@ -71,15 +69,12 @@ function handleAddCardFormSubmit(cardData) {
       newCardPopup.resetForm();
       newCardPopup.close();
     })
-    .catch((err) => {
-      console.err(err);
-    })
+    .catch(console.error)
     .finally(() => {
       newCardPopup.viewLoading(false);
     });
 }
 
-//----------------------------event handlers---------------------------------//
 function handleImageClick(cardData) {
   popupImage.open(cardData);
 }
@@ -93,15 +88,12 @@ function handleProfileEditSubmit(inputValues) {
       profileEditValidator.disableButton();
       profileEditPopup.close();
     })
-    .catch((err) => {
-      console.err(err);
-    })
+    .catch(console.error)
     .finally(() => {
-      avatarEditPopup.viewLoading(false);
+      profileEditPopup.viewLoading(false);
     });
 }
 
-//-----------------------------------event listeners--------------------------//
 addNewCardButton.addEventListener("click", () => {
   newCardPopup.open();
 });
@@ -113,7 +105,6 @@ profileEditButton.addEventListener("click", () => {
   profileEditPopup.open();
 });
 
-//---------------------------------functions---------------------------------//
 function getCardElement(cardData) {
   const card = new Card(
     cardData,
@@ -126,7 +117,6 @@ function getCardElement(cardData) {
   return cardElement;
 }
 
-//-----------------instantiations------------------------------//
 const profileEditValidator = new FormValidator(config, profileEditForm);
 const addCardValidator = new FormValidator(config, addCardFormElement);
 const addAvatarValidator = new FormValidator(config, editAvatarForm);
@@ -157,14 +147,14 @@ function handleLikeIcon(card) {
       .then(() => {
         card.setIsLiked(false);
       })
-      .catch((err) => console.error(err));
+      .catch(console.error);
   } else {
     api
       .addLike(card.id)
       .then(() => {
         card.setIsLiked(true);
       })
-      .catch((err) => console.error(err));
+      .catch(console.error);
   }
 }
 
