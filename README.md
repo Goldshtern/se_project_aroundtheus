@@ -39,7 +39,7 @@ To create this web-page the follwing technologies and technniques were used:
 **Pictures (screenshots)**
 
 Grid.
-![grid](..src/images/demo/BEM%20file%20stucture.png)
+![grid](.src/images/demo/BEM%20file%20stucture.png)
 
 Flex and grid.
 ![flex and grid](.src/images/demo/flex%20and%20grid.png)
