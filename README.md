@@ -39,22 +39,22 @@ To create this web-page the follwing technologies and technniques were used:
 **Pictures (screenshots)**
 
 Grid.
-![grid](./images/demo/BEM%20file%20stucture.png)
+![grid](.src/images/demo/BEM%20file%20stucture.png)
 
 Flex and grid.
-![flex and grid](./images/demo/flex%20and%20grid.png)
+![flex and grid](.src/images/demo/flex%20and%20grid.png)
 
 BEM structure.
-![BEM structure](./images/demo/BEM%20file%20stucture.png)
+![BEM structure](.src/images/demo/BEM%20file%20stucture.png)
 
 1280px
-![1280px](./images/demo/1280px.png)
+![1280px](.src/images/demo/1280px.png)
 
 775px
-![775px](./images/demo/775px.png)
+![775px](.src/images/demo/775px.png)
 
 320px
-![320px](./images/demo/320px.png)
+![320px](.src/images/demo/320px.png)
 
 **Video Sprint 3**
 
