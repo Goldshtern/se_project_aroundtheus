@@ -42,19 +42,19 @@ Grid.
 ![grid](/src/images/demo/BEM%20file%20stucture.png)
 
 Flex and grid.
-![flex and grid](.src/images/demo/flex%20and%20grid.png)
+![flex and grid](/src/images/demo/flex%20and%20grid.png)
 
 BEM structure.
-![BEM structure](.src/images/demo/BEM%20file%20stucture.png)
+![BEM structure](/src/images/demo/BEM%20file%20stucture.png)
 
 1280px
-![1280px](.src/images/demo/1280px.png)
+![1280px](/src/images/demo/1280px.png)
 
 775px
-![775px](.src/images/demo/775px.png)
+![775px](/src/images/demo/775px.png)
 
 320px
-![320px](.src/images/demo/320px.png)
+![320px](/src/images/demo/320px.png)
 
 **Video Sprint 3**
 
