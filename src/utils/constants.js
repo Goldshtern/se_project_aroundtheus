@@ -1,30 +1,3 @@
-export const initialCards = [
-  {
-    name: "Yosemite Valley",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-  },
-  {
-    name: "Lake Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
-  },
-  {
-    name: "Bald Mountains",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
-  },
-  {
-    name: "Vanoise National Park",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
-  },
-];
-
 export const config = {
   formSelector: ".modal__form",
   inputSelector: ".modal__field",
@@ -34,21 +7,20 @@ export const config = {
   errorClass: "modal__error_visible",
 };
 
-//---------------------forms----------------------------------------------//
 export const profileEditForm = document.forms["add-profile-form"];
 export const addCardFormElement = document.forms["add-card-form"];
-//----------------------page buttons--------------------------------------//
+export const editAvatarForm = document.forms["add-avatar-form"];
 export const profileEditButton = document.querySelector("#profile-edit-button");
 export const addNewCardButton = document.querySelector("#profile-add-button");
-//-----------------------cards----------------------------------------------//
+export const profileAvatarButton = document.querySelector(
+  "#avatar-edit-button"
+);
 export const cardListEl = document.querySelector(".gallery__cards");
-//--------------------------prevew image element----------------------------//
 export const previewPopup = document.querySelector("#modal-image");
 export const imagePreviewPopup = previewPopup.querySelector(".modal__image");
 export const titlePreviewPopup = previewPopup.querySelector(
   ".modal__image-title"
 );
-//--------------------------profile inputs-----------------------------------//
 export const profileEditModal = document.querySelector("#profile-edit-modal");
 export const profileTitle = document.querySelector(".profile__title");
 export const profileDescription = document.querySelector(
